@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "187727506939",
+    "project_id": "myfirstapplication-fd2a495a",
+    "storage_bucket": "myfirstapplication-fd2a495a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:187727506939:android:110570fce971cccd3baf5e",
+        "android_client_info": {
+          "package_name": "com.ynov.tvshows"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9fmLT-dJSM8OyjddTGEmK9nZz9LXBgdY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
