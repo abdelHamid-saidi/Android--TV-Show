@@ -1,10 +1,4 @@
-package com.ynov.tvshows.most_popular.data.dto
-
-data class PopularShowsResponseDto(
-    val page: Int,
-    val pages: Int,
-    val tv_shows: List<TvShowDto>
-)
+package data.dto
 
 data class TvShowDto(
     val id: Int,
@@ -16,4 +10,11 @@ data class TvShowDto(
     val network: String?,
     val status: String?,
     val image_thumbnail_path: String
+)
+
+data class PopularShowsResponseDto(
+    val total: Int,
+    val page: Int,
+    val pages: Int,
+    val tv_shows: List<TvShowDto>
 )
