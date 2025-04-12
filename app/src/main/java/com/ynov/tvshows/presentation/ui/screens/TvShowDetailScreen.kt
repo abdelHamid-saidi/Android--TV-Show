@@ -10,40 +10,58 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.rememberAsyncImagePainter
 import presentation.viewmodel.TvShowDetailViewModel
+import androidx.navigation.NavController
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TvShowDetailScreen(
     permalink: String,
-    viewModel: TvShowDetailViewModel = hiltViewModel()
+    viewModel: TvShowDetailViewModel = hiltViewModel(),
+    navController: NavController
 ) {
-    // ⚠️ Déclenchement du chargement des données quand on entre dans l'écran
     LaunchedEffect(permalink) {
         viewModel.loadDetails(permalink)
     }
 
     val details = viewModel.details.collectAsState().value
 
-    details?.let {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(16.dp)
-        ) {
-            Image(
-                painter = rememberAsyncImagePainter(it.imageUrl),
-                contentDescription = null,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(200.dp)
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text(text = "Détail de l’émission") },
+                navigationIcon = {
+                    IconButton(onClick = { navController.popBackStack() }) {
+                        Icon(
+                            imageVector = Icons.Default.ArrowBack,
+                            contentDescription = "Retour"
+                        )
+                    }
+                }
             )
-            Spacer(modifier = Modifier.height(16.dp))
-            Text(text = it.name, style = MaterialTheme.typography.titleLarge)
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(text = it.description, style = MaterialTheme.typography.bodyLarge)
         }
-    } ?: run {
-        Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-            CircularProgressIndicator()
+    ) { padding ->
+        Box(modifier = Modifier.padding(padding)) {
+            details?.let {
+                Column(modifier = Modifier
+                    .fillMaxSize()
+                    .padding(16.dp)) {
+                    Image(
+                        painter = rememberAsyncImagePainter(it.imageUrl),
+                        contentDescription = null,
+                        modifier = Modifier.fillMaxWidth().height(200.dp)
+                    )
+                    Spacer(modifier = Modifier.height(16.dp))
+                    Text(text = it.name, style = MaterialTheme.typography.titleLarge)
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Text(text = it.description, style = MaterialTheme.typography.bodyLarge)
+                }
+            } ?: run {
+                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    CircularProgressIndicator()
+                }
+            }
         }
     }
 }

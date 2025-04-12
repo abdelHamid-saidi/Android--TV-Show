@@ -28,7 +28,7 @@ fun TvShowNavGraph(
         }
         composable("details/{permalink}") { backStackEntry ->
             val permalink = backStackEntry.arguments?.getString("permalink") ?: return@composable
-            TvShowDetailScreen(permalink = permalink)
+            TvShowDetailScreen(permalink = permalink, navController = navController)
         }
     }
 }
