@@ -5,11 +5,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 import utils.Constants
 
 object RetrofitClient {
-    val api: com.ynov.tvshows.data.service.TvShowApiService by lazy {
+    val api: data.service.TvShowApiService by lazy {
         Retrofit.Builder()
             .baseUrl(Constants.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(com.ynov.tvshows.data.service.TvShowApiService::class.java)
+            .create(data.service.TvShowApiService::class.java)
     }
 }

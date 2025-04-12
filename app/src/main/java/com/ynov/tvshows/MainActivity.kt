@@ -1,4 +1,4 @@
-package com.ynov.tvshows
+package com.ynov.tvshow
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -7,21 +7,16 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import dagger.hilt.android.AndroidEntryPoint
 import presentation.ui.screens.TvShowListScreen
-import presentation.viewmodel.TvShowListViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.ynov.tvshows.ui.theme.TvShowsTheme
+import com.ynov.tvshows.ui.theme.TvShowTheme
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            TvShowsTheme {
+            TvShowTheme {
                 Surface(color = MaterialTheme.colorScheme.background) {
-                    val viewModel: TvShowListViewModel = viewModel()
-                    TvShowListScreen(viewModel = viewModel) {
-                        // TODO: Navigation vers l'écran de détails avec le showName
-                    }
+                    TvShowListScreen()
                 }
             }
         }

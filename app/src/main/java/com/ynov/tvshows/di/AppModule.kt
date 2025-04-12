@@ -1,6 +1,6 @@
 package di
 
-import data.remote.RetrofitClient
+import data.service.RetrofitClient
 import data.repository.TvShowRepositoryImpl
 import domain.repository.TvShowRepository
 import domain.usecase.GetPopularShowsUseCase

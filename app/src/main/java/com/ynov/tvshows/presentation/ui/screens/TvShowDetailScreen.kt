@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import presentation.viewmodel.TvShowDetailViewModel
+import androidx.compose.ui.Alignment
 
 @Composable
 fun TvShowDetailScreen(viewModel: TvShowDetailViewModel) {

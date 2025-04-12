@@ -9,10 +9,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="com.ynov.tvshows" />
-                  <option name="mobileSdkAppId" value="1:187727506939:android:110570fce971cccd3baf5e" />
-                  <option name="projectId" value="myfirstapplication-fd2a495a" />
-                  <option name="projectNumber" value="187727506939" />
+                  <option name="appId" value="PLACEHOLDER" />
+                  <option name="mobileSdkAppId" value="" />
+                  <option name="projectId" value="" />
+                  <option name="projectNumber" value="" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
