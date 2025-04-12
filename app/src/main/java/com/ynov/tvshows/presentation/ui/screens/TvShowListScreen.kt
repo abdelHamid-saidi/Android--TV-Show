@@ -1,6 +1,6 @@
 package presentation.ui.screens
 
-import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -13,11 +13,14 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
-import presentation.viewmodel.TvShowListViewModel
 import domain.model.TvShow
+import presentation.viewmodel.TvShowListViewModel
 
 @Composable
-fun TvShowListScreen(viewModel: TvShowListViewModel = hiltViewModel()) {
+fun TvShowListScreen(
+    viewModel: TvShowListViewModel = hiltViewModel(),
+    onItemClick: (String) -> Unit
+) {
     val shows by viewModel.shows.collectAsState()
 
     LazyColumn(
@@ -26,23 +29,26 @@ fun TvShowListScreen(viewModel: TvShowListViewModel = hiltViewModel()) {
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         items(shows) { show ->
-            TvShowItem(show = show)
+            TvShowItem(show = show, onClick = { onItemClick(show.permalink) })
         }
     }
 }
 
 @Composable
-fun TvShowItem(show: TvShow) {
+fun TvShowItem(
+    show: TvShow,
+    onClick: () -> Unit
+) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
+            .clickable { onClick() }
             .padding(8.dp)
     ) {
         AsyncImage(
             model = show.imageUrl,
             contentDescription = null,
-            modifier = Modifier
-                .size(100.dp)
+            modifier = Modifier.size(100.dp)
         )
 
         Spacer(modifier = Modifier.width(12.dp))
