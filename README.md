@@ -1,8 +1,9 @@
-# 📺 TV Show App
+# TV Show App
 
 Application Android développée en **Kotlin** avec **Jetpack Compose**, suivant l'architecture **Clean Architecture** et le modèle **MVVM**. Elle permet d'afficher une liste des émissions TV populaires ainsi que les détails d’une émission sélectionnée.
 
-## 🚀 Fonctionnalités
+
+## Fonctionnalités
 
 - Liste paginée des émissions TV populaires (API de [episodate.com](https://www.episodate.com))
 - Affichage des détails d’une émission sélectionnée
@@ -11,7 +12,8 @@ Application Android développée en **Kotlin** avec **Jetpack Compose**, suivant
 - Gestion des images avec Coil
 - Injection de dépendances via Dagger-Hilt
 
-## 🛠️ Technologies
+
+##  Technologies
 
 - **Jetpack Compose** : Interface utilisateur
 - **MVVM** : Séparation des préoccupations
@@ -21,9 +23,10 @@ Application Android développée en **Kotlin** avec **Jetpack Compose**, suivant
 - **Coil** : Chargement d’images
 - **Kotlin Coroutines** : Traitement asynchrone
 
-## 📦 Dépendances principales
 
-```kotlin
+##  Dépendances principales
+
+```kotlin 
 // Architecture Components
 implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
 
